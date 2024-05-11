@@ -1,3 +1,4 @@
+print("WORKING YAY")
 local previousPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
 
 local function unequipTools()
