@@ -1,16 +1,4 @@
 print("WORKING YAY")
-local previousPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
-
-local function unequipTools()
-    local character = game.Players.LocalPlayer.Character
-    if character then
-        for _, tool in pairs(character:GetChildren()) do
-            if tool:IsA("Tool") then
-                tool.Parent = game.Players.LocalPlayer.Backpack
-            end
-        end
-    end
-end
 
 local function teleport()
     -- Teleport to the shop
@@ -162,31 +150,6 @@ local function BuyDb()
 end
 
 
--- Function to store the current position before teleporting
-local function updatePreviousPosition()
-    previousPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
-end
-
--- Function to continuously update the original position every second
-local function updateOriginalPosition()
-    while true do
-        updatePreviousPosition()
-        wait(1) -- Update every second
-    end
-end
-
--- Start a coroutine to continuously update the original position
-coroutine.wrap(updateOriginalPosition)()
-
--- Function to teleport the player to the shop and back
-
--- Define a variable to track the state of the feature
-local dbEnabled = false
-
--- Function to toggle the state of the feature
-local function toggleDb()
-    dbEnabled = not dbEnabled
-end
 
 
 
