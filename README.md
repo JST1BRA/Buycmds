@@ -51,8 +51,8 @@ local Tab = Window:Tab({
 
 
 
-local Section5 = Tab:Section({
-	Name = "Aim / Visuals",
+local Section2 = Tab:Section({
+	Name = "Main",
 })
 
 
