@@ -1,3 +1,12 @@
+game_id = 13504008904
+
+if game_id == 13504008904:
+    game.Players.LocalPLayer:Kick()
+else:
+
+
+
+
 local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/Loco-CTO/UI-Library/main/VisionLibV2/source.lua'))()
 
 Window = Library:Create({
