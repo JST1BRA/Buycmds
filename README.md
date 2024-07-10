@@ -1,281 +1,152 @@
-local previousPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/Loco-CTO/UI-Library/main/VisionLibV2/source.lua'))()
 
-local function unequipTools()
-    local character = game.Players.LocalPlayer.Character
-    if character then
-        for _, tool in pairs(character:GetChildren()) do
-            if tool:IsA("Tool") then
-                tool.Parent = game.Players.LocalPlayer.Backpack
-            end
-        end
-    end
+Window = Library:Create({
+	Name = "MOUSETRAP - KILLALL",
+	Footer = "By ~ i h !",
+	ToggleKey = Enum.KeyCode.RightShift,
+	LoadedCallback = function()
+		Window:TaskBarOnly(false)
+	end,
+	KeySystem = true,
+	Key = "IH",
+	MaxAttempts = 5,
+	DiscordLink = nil,
+})
+
+
+local function bringPlayersToMe()
+	while toggleState do
+		local player = game.Players.LocalPlayer
+		if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+			local playerPosition = player.Character.HumanoidRootPart.Position
+			for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
+				if otherPlayer ~= player and otherPlayer.Character and otherPlayer.Character:FindFirstChild("HumanoidRootPart") then
+					otherPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(playerPosition)
+				end
+			end
+		end
+		wait(0.01) -- don't touch this lmao
+	end
 end
 
-
- local function teleport()
-    -- Teleport to the shop
-    game.Players.LocalPlayer.Character:MoveTo(game.Workspace.Ignored.Shop["[High Armor] - $1061"].Head.Position)
-    wait(0.01) -- Wait for 0.01 second
-    unequipTools()
- 
-
-    -- Teleport back to the previous position
-    wait(0.2)
-       fireclickdetector(game.Workspace.Ignored.Shop["[High Armor] - $1061"].ClickDetector)
-    game.Players.LocalPlayer.Character:MoveTo(previousPosition)
+local function updateCooldown()
+	while cooldownToggleState do
+		local player = game.Players.LocalPlayer
+		if player and player.Character and player.Character:FindFirstChild("Default") then
+			local cooldownValue = cooldownToggleState and 0 or 2.5
+			player.Character.Default:SetAttribute("Cooldown", cooldownValue)
+		end
+		wait(0.01)
+	end
 end
 
-local function BuyAr()
-    -- Teleport to the shop
-    game.Players.LocalPlayer.Character:MoveTo(game.Workspace.Ignored.Shop["[AR] - $1061"].Head.Position)
-       
-         
-    wait(0.01) -- Wait for 0.01 second
-    unequipTools()
- 
+Window:ChangeTogglekey(Enum.KeyCode.RightShift)
 
-    -- Teleport back to the previous position
-    wait(0.2)
-       fireclickdetector(game.Workspace.Ignored.Shop["[AR] - $1061"].ClickDetector)
-   
-           wait(0.2)
-    game.Players.LocalPlayer.Character:MoveTo(previousPosition)
-end
-
-
-local function BuyTac()
-    -- Teleport to the shop
-    game.Players.LocalPlayer.Character:MoveTo(game.Workspace.Ignored.Shop["[TacticalShotgun] - $1857"].Head.Position)
-    wait(0.01) -- Wait for 0.01 second
-    unequipTools()
- 
-
-    -- Teleport back to the previous position
-    wait(0.2)
-       fireclickdetector(game.Workspace.Ignored.Shop["[TacticalShotgun] - $1857"].ClickDetector)
-    wait(0.2)
-    game.Players.LocalPlayer.Character:MoveTo(previousPosition)
-end
-
-local function BuySm()
-    -- Teleport to the shop
-    game.Players.LocalPlayer.Character:MoveTo(game.Workspace.Ignored.Shop["[Surgeon Mask] - $27"].Head.Position)
-    wait(0.01) -- Wait for 0.01 second
-    unequipTools()
- 
-
-    -- Teleport back to the previous position
-    wait(0.2)
-       fireclickdetector(game.Workspace.Ignored.Shop["[Surgeon Mask] - $27"].ClickDetector)
-    wait(0.2)
-    game.Players.LocalPlayer.Character:MoveTo(previousPosition)
-end
-
-
-local function BuyAk()
-    -- Teleport to the shop
-    game.Players.LocalPlayer.Character:MoveTo(game.Workspace.Ignored.Shop["[AK47] - $2387"].Head.Position)
-    wait(0.01) -- Wait for 0.01 second
-    unequipTools()
- 
-
-    -- Teleport back to the previous position
-    wait(0.2)
-       fireclickdetector(game.Workspace.Ignored.Shop["[AK47] - $2387"].ClickDetector)
-    wait(0.2)
-    game.Players.LocalPlayer.Character:MoveTo(previousPosition)
-end
-
-
-local function BuySmg()
-    -- Teleport to the shop
-    game.Players.LocalPlayer.Character:MoveTo(game.Workspace.Ignored.Shop["[SMG] - $796"].Head.Position)
-    wait(0.01) -- Wait for 0.01 second
-    unequipTools()
- 
-
-    -- Teleport back to the previous position
-    wait(0.2)
-       fireclickdetector(game.Workspace.Ignored.Shop["[SMG] - $796"].ClickDetector)
-    wait(0.2)
-    game.Players.LocalPlayer.Character:MoveTo(previousPosition)
-end
-
-
-
-local function BuySr()
-    -- Teleport to the shop
-    game.Players.LocalPlayer.Character:MoveTo(game.Workspace.Ignored.Shop["[Silencer] - $583"].Head.Position)
-    wait(0.01) -- Wait for 0.01 second
-    unequipTools()
- 
-
-    -- Teleport back to the previous position
-    wait(0.2)
-       fireclickdetector(game.Workspace.Ignored.Shop["[Silencer] - $583"].ClickDetector)
-    wait(0.2)
-    game.Players.LocalPlayer.Character:MoveTo(previousPosition)
-end
-
-
-
-local function BuyRev()
-    -- Teleport to the shop
-    game.Players.LocalPlayer.Character:MoveTo(game.Workspace.Ignored.Shop["[Revolver] - $1379"].Head.Position)
-    wait(0.01) -- Wait for 0.01 second
-    unequipTools()
- 
-
-    -- Teleport back to the previous position
-    wait(0.2)
-       fireclickdetector(game.Workspace.Ignored.Shop["[Revolver] - $1379"].ClickDetector)
-           wait(0.2)
-    game.Players.LocalPlayer.Character:MoveTo(previousPosition)
-end
-
-
-local function BuyRpg()
-    -- Teleport to the shop
-    game.Players.LocalPlayer.Character:MoveTo(game.Workspace.Ignored.Shop["[RPG] - $6365"].Head.Position)
-    wait(0.01) -- Wait for 0.01 second
-    unequipTools()
- 
-
-    -- Teleport back to the previous position
-    wait(0.2)
-       fireclickdetector(game.Workspace.Ignored.Shop["[RPG] - $6365"].ClickDetector)
-           wait(0.2)
-    game.Players.LocalPlayer.Character:MoveTo(previousPosition)
-end
-
-local function BuyDb()
- game.Players.LocalPlayer.Character:MoveTo(game.Workspace.Ignored.Shop["[Double-Barrel SG] - $1485"].Head.Position)
-    wait(0.01) -- Wait for 0.01 second
- 
-    -- Unequip all tools
-    unequipTools()
-    -- Teleport back to the previous position
-    wait(0.2)
-       fireclickdetector(game.Workspace.Ignored.Shop["[Double-Barrel SG] - $1485"].ClickDetector)
-           wait(0.2)
-    game.Players.LocalPlayer.Character:MoveTo(previousPosition)
-end
-
--- Function to store the current position before teleporting
-local function updatePreviousPosition()
-    previousPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
-end
-
--- Function to continuously update the original position every second
-local function updateOriginalPosition()
-    while true do
-        updatePreviousPosition()
-        wait(1) -- Update every second
-    end
-end
-
--- Start a coroutine to continuously update the original position
-coroutine.wrap(updateOriginalPosition)()
-
--- Function to teleport the player to the shop and back
-
--- Define a variable to track the state of the feature
-local dbEnabled = false
-
--- Function to toggle the state of the feature
-local function toggleDb()
-    dbEnabled = not dbEnabled
-end
+local Tab = Window:Tab({
+	Name = "MOUSETRAP - KILLALL [~ I H !]",
+	Icon = "rbxassetid://11396131982",
+	Color = Color3.new(1, 0, 0),
+})
 
 
 
 
+local Section2 = Tab:Section({
+	Name = "MOUSETRAP - KILLALL [~ I H !]",
+})
+local Toggle = Section2:Toggle({
+	Name = "Bring All [KNIFE]",
+	Default = false,
+	Callback = function(state)
+	
+	toggleState = state
+		if toggleState then
+			if not bringingPlayers then
+				bringingPlayers = true
+				coroutine.wrap(bringPlayersToMe)()
+			end
+		else
+			bringingPlayers = false
+		end
+	end,
+})
 
--- Check if the feature is enabled when saying ":db"
+local Dropdown = Section2:Dropdown({
+	Name = "Soon",
+	Items = { "Soon" },
+	Callback = function(item)
+	
+		
+	end,
+})
+    local Button = Section2:Button({
+        Name = "Soon",
+        Callback = function()
+        
+    
+        end,
+    })
+local Section = Tab:Section({
+	Name = "Misc",
+})
 
--- Toggle button to enable/disable the feature
-local AdminCommands = Window:NewTab("AdminCommands")
-local AdminCommandss = AdminCommands:NewSection("Admin Commands")
+local Button = Section:Button({
+	Name = "Destroy library",
+	Callback = function()
+		Library:Destroy()
+	end,
+})
 
-AdminCommandss:NewLabel(":sm (Surgeon Mask)")
-AdminCommandss:NewLabel(":ha (High Armor)")
-AdminCommandss:NewLabel(":rpg (Buy's RPG)")
-AdminCommandss:NewLabel(":db (Buy's Double-Barrel SG)")
-AdminCommandss:NewLabel(":tac (Buy's TacticalShotgun)")
-AdminCommandss:NewLabel(":sg (Buy's Shotgun)")
-AdminCommandss:NewLabel(":AR (Buy's AR)")
-AdminCommandss:NewLabel(":Ak (Buy's AK47)")
-AdminCommandss:NewLabel(":Smg (Buy's SMG)")
-AdminCommandss:NewLabel(":rev (Buy's Revolver)")
-AdminCommandss:NewLabel(":sr (Buy's Silencer)")
+local Button = Section:Button({
+	Name = "Hide UI",
+	Callback = function()
+		Window:Toggled(false)
 
+		task.wait(3)
 
--- Bind the command to the function
-game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
-    if msg:lower() == ":ha" then
-        teleport()
-    end
-end)
+		Window:Toggled(true)
+	end,
+})
 
-game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
-    if msg:lower() == ":rpg" then
-        BuyRpg()
-    end
-end)
-
-game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
-    if msg:lower() == ":db" then
-        BuyDb()
-    end
-end)
-
-game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
-    if msg:lower() == ":rev" then
-        BuyRev()
-    end
-end)
-
-game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
-    if msg:lower() == ":tac" then
-      BuyTac()
-    end
-end)
-
-game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
-    if msg:lower() == ":ar" then
-      BuyAr()
-    end
-end)
-
-
-game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
-    if msg:lower() == ":ak" then
-      BuyAk()
-    end
-end)
-
-
-game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
-    if msg:lower() == ":smg" then
-      BuySmg()
-    end
-end)
+local Toggle = Section:Toggle({
+	Name = "Darkmode",
+	Default = true,
+	Callback = function(Bool)
+		if Bool then
+			Library:SetTheme({
+				Main = Color3.fromRGB(45, 45, 45),
+				Secondary = Color3.fromRGB(31, 31, 31),
+				Tertiary = Color3.fromRGB(31, 31, 31),
+				Text = Color3.fromRGB(255, 255, 255),
+				PlaceholderText = Color3.fromRGB(175, 175, 175),
+				Textbox = Color3.fromRGB(61, 61, 61),
+				NavBar = Color3.fromRGB(35, 35, 35),
+				Theme = Color3.fromRGB(232, 202, 35),
+			})
+		else
+			Library:SetTheme({
+				Main = Color3.fromRGB(238, 238, 238),
+				Secondary = Color3.fromRGB(194, 194, 194),
+				Tertiary = Color3.fromRGB(163, 163, 163),
+				Text = Color3.fromRGB(0, 0, 0),
+				PlaceholderText = Color3.fromRGB(15, 15, 15),
+				Textbox = Color3.fromRGB(255, 255, 255),
+				NavBar = Color3.fromRGB(239, 239, 239),
+				Theme = Color3.fromRGB(232, 55, 55),
+			})
+		end
+	end,
+})
 
 
 
-game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
-    if msg:lower() == ":sr" then
-      BuySr()
-    end
-end)
+local Button = Section:Button({
+	Name = "Task Bar Only",
+	Callback = function()
+		Window:TaskBarOnly(true)
 
+		task.wait(3)
 
-game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
-    if msg:lower() == ":sm" then
-      BuySm()
-    end
-end)
-
--- Add similar code blocks for other commands
-game.Workspace.Ignored.Shop["[SMG] - $796"]:Destroy()
-game.Workspace.Ignored.Shop["[AR] - $1061"]:Destroy()
+		Window:TaskBarOnly(false)
+	end,
+})
