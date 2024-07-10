@@ -1,14 +1,14 @@
 local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/Loco-CTO/UI-Library/main/VisionLibV2/source.lua'))()
 
 Window = Library:Create({
-	Name = "MOUSETRAP - KILLALL",
+	Name = "MOUSETRAP -  ~ i h !",
 	Footer = "By ~ i h !",
 	ToggleKey = Enum.KeyCode.RightShift,
 	LoadedCallback = function()
 		Window:TaskBarOnly(false)
 	end,
 	KeySystem = true,
-	Key = "IH",
+	Key = "ih",
 	MaxAttempts = 5,
 	DiscordLink = nil,
 })
@@ -43,7 +43,7 @@ end
 Window:ChangeTogglekey(Enum.KeyCode.RightShift)
 
 local Tab = Window:Tab({
-	Name = "MOUSETRAP - KILLALL [~ I H !]",
+	Name = "MOUSETRAP - ~ i h !",
 	Icon = "rbxassetid://11396131982",
 	Color = Color3.new(1, 0, 0),
 })
@@ -51,9 +51,14 @@ local Tab = Window:Tab({
 
 
 
-local Section2 = Tab:Section({
-	Name = "MOUSETRAP - KILLALL [~ I H !]",
+local Section5 = Tab:Section({
+	Name = "Aim / Visuals",
 })
+
+
+
+
+
 local Toggle = Section2:Toggle({
 	Name = "Bring All [KNIFE]",
 	Default = false,
@@ -71,6 +76,8 @@ local Toggle = Section2:Toggle({
 	end,
 })
 
+
+    
 local Dropdown = Section2:Dropdown({
 	Name = "Soon",
 	Items = { "Soon" },
@@ -79,22 +86,70 @@ local Dropdown = Section2:Dropdown({
 		
 	end,
 })
-    local Button = Section2:Button({
-        Name = "Soon",
+
+
+
+local Tab3 = Window:Tab({
+	Name = "Other Hubs",
+	Icon = "rbxassetid://13492316879",
+	Color = Color3.new(1, 0, 0),
+})
+
+local Section3 = Tab3:Section({
+	Name = "Other Hubs",
+})
+local Button = Section3:Button({
+	Name = "Vortex",
+	Callback = function()
+	    loadstring(game:HttpGet(('https://raw.githubusercontent.com/ImagineProUser/vortexdahood/main/vortex'),true))()
+	end,
+})
+
+local Button = Section3:Button({
+	Name = "Chariotsware",
+	Callback = function()
+	 loadstring(game:HttpGet(('https://raw.githubusercontent.com/Rippeed/DaHoodinary/main/chariotsware'),true))()
+	end,
+})
+
+
+
+local Tab4 = Window:Tab({
+	Name = "FE FUN R6/15",
+	Icon = "rbxassetid://11362131982",
+	Color = Color3.new(1, 0, 0),
+})
+
+
+
+
+local Section4 = Tab4:Section({
+	Name = "FE FUN R6/15",
+})
+
+local Button = Section4:Button({
+        Name = "Walk on walls/roof",
         Callback = function()
-        
+          loadstring(game:HttpGet(('https://pastebin.com/raw/zXk4Rq2r'),true))()
     
         end,
     })
-local Section = Tab:Section({
+
+
+    
+
+
+
+    local Tab2 = Window:Tab({
 	Name = "Misc",
+	Icon = "rbxassetid://11476626403",
+	Color = Color3.new(1, 0, 0),
 })
 
-local Button = Section:Button({
-	Name = "Destroy library",
-	Callback = function()
-		Library:Destroy()
-	end,
+
+
+local Section = Tab2:Section({
+	Name = "Misc",
 })
 
 local Button = Section:Button({
