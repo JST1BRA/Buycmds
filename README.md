@@ -1,8 +1,3 @@
-game_id = 13504008904
-
-if game_id == 13504008904:
-    game.Players.LocalPLayer:Kick()
-else:
 
 
 
