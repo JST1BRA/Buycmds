@@ -12,7 +12,7 @@ Window = Library:Create({
 		Window:TaskBarOnly(false)
 	end,
 	KeySystem = true,
-	Key = "ih",
+	Key = "list3isgay",
 	MaxAttempts = 5,
 	DiscordLink = nil,
 })
